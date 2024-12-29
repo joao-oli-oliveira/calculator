@@ -31,6 +31,7 @@
 #buttons{
     display: flex;
 }
-#screen{width: 100%;
-height: 50px;
+#screen{
+    width: 100%;
+    height: 50px;
 }
