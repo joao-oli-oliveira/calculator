@@ -1,6 +1,36 @@
 
 Your calculator is going to contain functions for all of the basic math operators you typically find on calculators, so start by creating functions for the following items and testing them in your browser’s console:
 
+
+Numbers
+x if opFuntion is empty 
+    x store value in setFirstNumber
+    display the number
+
+if opFuntion !is empty 
+     store value in setSecondNumber
+        if number is already there, concatenate 
+    display the number
+
+Symbols
+when symbol clicked store the matching opFunction
+    display the symbol
+
+Equals 
+    if setPreviousResult is empty use setFirstNumber
+    otherwise use setPreviousResult
+    Run the function 
+    display the result
+
+Decimal
+
+
+
+
+
+
+
+
 Operators: 
     - add
     - subtract

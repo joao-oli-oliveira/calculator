@@ -1,21 +1,21 @@
 let setOperator = null;
 let setResult = 0;
-let setPreviousResult = 0;
-let setFirstNumber = 0;
-let setSecondNumber = 0;
+let setPreviousResult = "";
+let setFirstNumber = "";
+let setSecondNumber = "";
+let displayScreen = "";
 
 document.querySelectorAll("button").forEach((btn) =>
-  btn.addEventListener("click", function (e) {
-    console.log(btn.id);
+  btn.addEventListener("click", function () {
+    if (btn.dataset.type === "number") {
+      if (setOperator === null) {
+        setFirstNumber += btn.textContent;
+      } else {
+        setSecondNumber += btn.textContent;
+      }
+    }
   })
 );
-
-/* 
-
-
-
-
-*/
 
 function operation(firstNumber, secondNumber, OpFunction) {
   if (setPreviousResult === 0) {
