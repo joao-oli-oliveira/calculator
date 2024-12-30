@@ -14,6 +14,12 @@ document.querySelectorAll("button").forEach((btn) =>
         setSecondNumber += btn.textContent;
       }
     }
+    if (btn.dataset.type === "operator") {
+      setOperator = btn.dataset.operator;
+    }
+    console.log(setFirstNumber);
+    console.log(setOperator);
+    console.log(setSecondNumber);
   })
 );
 
