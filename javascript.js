@@ -55,21 +55,30 @@ document.querySelectorAll("button").forEach((button) =>
   button.addEventListener("click", function () {
     let { type } = button.dataset;
     if (type === "number" || type === "decimal") {
-      if (
-        type === "decimal" &&
-        setSecondNumber === "" &&
-        setFirstNumber !== ""
-      ) {
-        setSecondNumber = "0";
-      } // Case for when second number is blank
-      if (type === "decimal" && setFirstNumber === "") {
-        setFirstNumber = "0";
-      } // Case for when first number is blank
+      if (type === "decimal") {
+        if (setSecondNumber === "" && setOperator !== null) {
+          setSecondNumber = "0";
+        } // Case for when second number is blank
+        if (setFirstNumber === "") {
+          setFirstNumber = "0";
+        } // Case for when first number is blank
+      }
 
       if (setOperator === null) {
-        setFirstNumber += button.textContent;
-      } else {
-        setSecondNumber += button.textContent;
+        if (type === "decimal" && !setFirstNumber.includes(".")) {
+          setFirstNumber += button.textContent;
+        }
+        if (type !== "decimal") {
+          setFirstNumber += button.textContent;
+        }
+      }
+      if (setOperator !== null) {
+        if (type === "decimal" && !setSecondNumber.includes(".")) {
+          setSecondNumber += button.textContent;
+        }
+        if (type !== "decimal") {
+          setSecondNumber += button.textContent;
+        }
       }
     }
     if (type === "operator") {
@@ -82,6 +91,7 @@ document.querySelectorAll("button").forEach((button) =>
 
     console.log(setResult);
     console.log(setFirstNumber);
+    console.log(setFirstNumber.indexOf("."));
     console.log(setOperator);
     console.log(setSecondNumber);
   })

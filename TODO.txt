@@ -22,7 +22,7 @@ Equals
     x Run the function 
     display the result
 
-Decimal
+xxx Decimal
 
 
 
