@@ -7,19 +7,19 @@ x if opFuntion is empty
     x store value in setFirstNumber
     display the number
 
-if opFuntion !is empty 
-     store value in setSecondNumber
+x if opFuntion !is empty 
+    x store value in setSecondNumber
         if number is already there, concatenate 
     display the number
 
 Symbols
-when symbol clicked store the matching opFunction
+x when symbol clicked store the matching opFunction
     display the symbol
 
 Equals 
-    if setPreviousResult is empty use setFirstNumber
+    x if setPreviousResult is empty use setFirstNumber
     otherwise use setPreviousResult
-    Run the function 
+    x Run the function 
     display the result
 
 Decimal

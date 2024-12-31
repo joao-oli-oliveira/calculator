@@ -5,41 +5,25 @@ let setFirstNumber = "";
 let setSecondNumber = "";
 let displayScreen = "";
 
-document.querySelectorAll("button").forEach((btn) =>
-  btn.addEventListener("click", function () {
-    if (btn.dataset.type === "number") {
-      if (setOperator === null) {
-        setFirstNumber += btn.textContent;
-      } else {
-        setSecondNumber += btn.textContent;
-      }
-    }
-    if (btn.dataset.type === "operator") {
-      setOperator = btn.dataset.operator;
-    }
-    console.log(setFirstNumber);
-    console.log(setOperator);
-    console.log(setSecondNumber);
-  })
-);
+// function operation(firstNumber, secondNumber, opFunction) {
+//   if (setPreviousResult === 0) {
+//     setResult = opFunction(firstNumber, secondNumber);
+//     setPreviousResult = setResult;
+//     return setResult;
+//   }
+//   console.log(setResult);
 
-function operation(firstNumber, secondNumber, OpFunction) {
-  if (setPreviousResult === 0) {
-    setResult = OpFunction(firstNumber, secondNumber);
-    setPreviousResult = setResult;
-    return setResult;
-  }
-  return OpFunction(setPreviousResult, secondNumber);
-}
+//   return opFunction(setPreviousResult, secondNumber);
+// }
 
 const opFunctions = {
   add: function (x, y) {
     return x + y;
   },
 
-  // subtract: function (x, y) {
-  //   return x - y;
-  // },
+  subtract: function (x, y) {
+    return x - y;
+  },
   // sum: function (arr) {
   //   const sumOfAllNums = arr.reduce((total, currentItem) => {
   //     return total + currentItem;
@@ -67,4 +51,38 @@ const opFunctions = {
   // },
 };
 
-console.log(operation(setFirstNumber, setSecondNumber, opFunctions.add));
+document.querySelectorAll("button").forEach((button) =>
+  button.addEventListener("click", function () {
+    let { type } = button.dataset;
+    if (type === "number" || type === "decimal") {
+      if (
+        type === "decimal" &&
+        setSecondNumber === "" &&
+        setFirstNumber !== ""
+      ) {
+        setSecondNumber = "0";
+      } // Case for when second number is blank
+      if (type === "decimal" && setFirstNumber === "") {
+        setFirstNumber = "0";
+      } // Case for when first number is blank
+
+      if (setOperator === null) {
+        setFirstNumber += button.textContent;
+      } else {
+        setSecondNumber += button.textContent;
+      }
+    }
+    if (type === "operator") {
+      setOperator = button.dataset.operator;
+    }
+    if (type === "equal") {
+      setResult = opFunctions[setOperator](+setFirstNumber, +setSecondNumber);
+      displayScreen = setResult;
+    }
+
+    console.log(setResult);
+    console.log(setFirstNumber);
+    console.log(setOperator);
+    console.log(setSecondNumber);
+  })
+);
