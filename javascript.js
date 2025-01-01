@@ -40,10 +40,11 @@ const opFunctions = {
   // },
 };
 
-document.querySelectorAll("[data-type='number']").forEach((button) =>
-  button.addEventListener("click", function () {
-    let { type } = button.dataset;
-    if (type === "number" || type === "decimal") {
+document
+  .querySelectorAll("[data-type='number'], [data-type='decimal']")
+  .forEach((button) =>
+    button.addEventListener("click", function () {
+      let { type } = button.dataset;
       if (type === "decimal") {
         if (setSecondNumber === "" && setOperator !== null) {
           setSecondNumber = "0";
@@ -68,10 +69,8 @@ document.querySelectorAll("[data-type='number']").forEach((button) =>
           setSecondNumber += button.textContent;
         }
       }
-    }
-    console.log(setFirstNumber);
-  })
-);
+    })
+  );
 
 document.querySelectorAll("[data-type='operator']").forEach((button) =>
   button.addEventListener("click", function () {
