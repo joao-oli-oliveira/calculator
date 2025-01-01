@@ -5,17 +5,6 @@ let setFirstNumber = "";
 let setSecondNumber = "";
 let displayScreen = "";
 
-// function operation(firstNumber, secondNumber, opFunction) {
-//   if (setPreviousResult === 0) {
-//     setResult = opFunction(firstNumber, secondNumber);
-//     setPreviousResult = setResult;
-//     return setResult;
-//   }
-//   console.log(setResult);
-
-//   return opFunction(setPreviousResult, secondNumber);
-// }
-
 const opFunctions = {
   add: function (x, y) {
     return x + y;
@@ -51,7 +40,7 @@ const opFunctions = {
   // },
 };
 
-document.querySelectorAll("button").forEach((button) =>
+document.querySelectorAll("[data-type='number']").forEach((button) =>
   button.addEventListener("click", function () {
     let { type } = button.dataset;
     if (type === "number" || type === "decimal") {
@@ -63,7 +52,6 @@ document.querySelectorAll("button").forEach((button) =>
           setFirstNumber = "0";
         } // Case for when first number is blank
       }
-
       if (setOperator === null) {
         if (type === "decimal" && !setFirstNumber.includes(".")) {
           setFirstNumber += button.textContent;
@@ -81,18 +69,21 @@ document.querySelectorAll("button").forEach((button) =>
         }
       }
     }
-    if (type === "operator") {
-      setOperator = button.dataset.operator;
-    }
-    if (type === "equal") {
-      setResult = opFunctions[setOperator](+setFirstNumber, +setSecondNumber);
-      displayScreen = setResult;
-    }
-
-    console.log(setResult);
     console.log(setFirstNumber);
-    console.log(setFirstNumber.indexOf("."));
-    console.log(setOperator);
-    console.log(setSecondNumber);
   })
 );
+
+document.querySelectorAll("[data-type='operator']").forEach((button) =>
+  button.addEventListener("click", function () {
+    setOperator = button.dataset.operator;
+    console.log(setOperator);
+  })
+);
+
+document
+  .querySelectorAll("[data-type='equal']")[0]
+  .addEventListener("click", () => {
+    setResult = opFunctions[setOperator](+setFirstNumber, +setSecondNumber);
+    displayScreen = setResult;
+    console.log(setResult);
+  });
