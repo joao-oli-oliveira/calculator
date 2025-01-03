@@ -3,12 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculator</title>
+    <title>OliCalc</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <h2><a href="https://www.twitch.tv/oliandthebear">OliCalc</a></h2>
+
     <div id="frame">
-      <div id="screen">0</div>
+      <div id="screen"></div>
       <div id="buttons">
         <div id="numbers">
           <button id="numOne" data-type="number" class="number">1</button>
@@ -39,13 +41,28 @@
           >
             -
           </button>
-          <button id="signDivide" data-type="operator" class="operator">
+          <button
+            id="signDivide"
+            data-type="operator"
+            class="operator"
+            data-operator="division"
+          >
             /
           </button>
-          <button id="signMultiply" data-type="operator" class="operator">
+          <button
+            id="signMultiply"
+            data-type="operator"
+            class="operator"
+            data-operator="multiply"
+          >
             x
           </button>
-          <button id="signPowerOf" data-type="operator" class="operator">
+          <button
+            id="signPowerOf"
+            data-type="operator"
+            class="operator"
+            data-operator="power"
+          >
             ^
           </button>
           <button id="signEquals" data-type="equal" class="operator">=</button>

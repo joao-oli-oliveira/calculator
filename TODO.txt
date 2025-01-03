@@ -26,7 +26,15 @@ xxx Decimal
 
 
 
-
+x   Clicking a decimal point after result?    
+x  Floating arithmatics (0.1 + 0.7?) 
+x  Rounding answers
+x  Clear
+x  Backspace
+x  Finish operator functions
+x  Divide by zero
+x  Stuff on screen
+->  Keyboard support (IGNORE)
 
 
 
@@ -58,12 +66,12 @@ Create the functions that populate the display when you click the digit buttons.
 
 
 Gotchas:
-    - Your calculator should not evaluate more than a single pair of numbers at a time. 
+    x Your calculator should not evaluate more than a single pair of numbers at a time. 
     - You should round answers with long decimals so that they don’t overflow the display.
-    - Pressing = before entering all of the numbers or an operator could cause problems!
+    x Pressing = before entering all of the numbers or an operator could cause problems!
     - Pressing “clear” should wipe out any existing data. Make sure the user is really starting fresh after pressing “clear”.
     - Display a error message if the user tries to divide by 0… and don’t let it crash your calculator!
-    - Make sure that your calculator only runs an operation when supplied with two numbers and an operator by the user. 
+    x Make sure that your calculator only runs an operation when supplied with two numbers and an operator by the user. 
         Example: you enter a number (2), followed by an operator button (+). You press the operator button (+) a second consecutive time. Your calculator should not evaluate this as (2 + 2) and should not display the result (4). If consecutive operator buttons are pressed, your calculator should not run any evaluations, it should only take the last operator entered to be used for the next operation.
 
 Extra credit
